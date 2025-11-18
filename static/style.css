@@ -1,0 +1,174 @@
+:root {
+    --fondo-pag: #f5f1e8;      
+    --fondo-card: #ffffff;     
+    --texto-pri: #2c2c2c;      
+    --texto-sec: #666666;      
+    --acento: #e67e22;         
+    --borde-azul: #2980b9;     
+    --sombra: rgba(0, 0, 0, 0.08);
+    --leido-si: #27ae60
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(133, 133, 133);
+    box-shadow: 0px 0px 5px var(--sombra);
+    border-radius: 10px;
+    padding: 1.4em;
+    
+    
+    
+}
+
+body{
+    font-family: 'Lato';
+    background-color: var(--fondo-pag);
+    display: flex;
+    flex-direction: column
+    ;
+    align-items: center;
+    
+}
+
+h1 {
+    font-family: 'Playfair Display', serif; /* Fuente elegante */
+    font-size: 2em;
+    text-align: center;
+    color: var(--texto-pri);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.05); /* Sutil efecto 3D */
+}
+
+#buscador{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid var(--sombra);
+    border-radius: 8px;
+    font-size: 18px;
+    box-sizing: border-box;
+    align-self: center;
+    font-family: 'Lato';
+    transition: border-color 0.3s;
+}
+
+#buscador:focus{
+    outline: none;
+    border-color: var(--acento);
+}
+.contenedor{
+    width: 90%;
+    max-width: 1200px;
+    padding: 1em;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px var(--sombra);
+}
+#lista-libros{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    width: 100%;
+    gap: 1em;
+}
+.tarjeta-libro{
+    border-left: 5px solid var(--acento);
+    background-color: var(--fondo-card);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 4px;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px var(--sombra);
+}
+
+
+.tarjeta-libro:hover{
+    transform: translateY(-5px);
+    background-color: var(--sombra);
+}
+
+.titulo{
+    font-family: 'Playfair Display';
+    margin: 0;
+    color: var(--texto-pri);
+}
+
+.autor{
+    color: var(--texto-sec);
+    margin: 5px 0;
+}
+
+.anio{
+    font-size: 0.8em;
+    background-color: var(--fondo-pag);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.icono-svg{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 6px;
+    transition: transform 0.2s;
+}
+
+.btn-leido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Lato';
+    font-size: 0.9rem;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.leido-no{
+    background-color: var(--fondo-card);
+    color: var(--texto-sec);
+    border: 1px solid var(--sombra);
+}
+
+.leido-no:hover{
+    background-color: var(--fondo-pag);
+}
+
+.leido-no .icono-check{
+    display: none;
+}
+
+.leido-no .icono-libro{display: inline-block;}
+
+.leido-no .texto-btn::after{
+    content: " como leído";
+
+}
+
+.leido-si{
+    background-color: var(--leido-si);
+    color: var(--fondo-pag);
+    border: 1px solid var(--leido-si);
+}
+
+.leido-si:hover{
+    background-color: var(--leido-si);
+}
+
+.leido-si .icono-libro{
+    display: none;
+}
+.leido-si .icono-check{
+    display: inline-block;
+}
+
+.leido-si .texto-btn{
+    display: none;
+}
+
+.leido-si::after{
+    content: "Leído"; font-weight: bold;
+}

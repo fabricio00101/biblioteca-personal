@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi biblioteca personal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Mi biblioteca personal</h1>
+
+        <input type="text" id="buscador" placeholder="Buscar por título o autor...">
+    </header>
+
+    <div class="contenedor">
+        <div id="lista-libros">
+            {% for libro in libros %}
+            <div class="tarjeta-libro">
+                <h2 class="titulo">{{ libro.titulo }}</h2>
+                <p class="autor"> Escrito por: <strong>{{ libro.autor }}</strong></p>
+                <span class="anio">{{ libro.anio_publicacion }}</span>
+                <button class="btn-leido {% if libro.leido %}leido-si{% else %}leido-no{% endif %}"
+                    data-id="{{ libro.id_libro }}" onclick="marcarLeido(this)">
+
+                    <img src="{{ url_for('static', filename='img/eye.svg') }}" class="icono-svg icono-libro"
+                        alt="Marcar como leído">
+
+                    <img src="{{ url_for('static', filename='img/eye-check.svg') }}" class="icono-svg icono-check"
+                        alt="Leído">
+
+                    <span class="texto-btn">Marcar</span>
+                </button>
+            </div>
+            {% else %}
+            <p>No hay libros cargados.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename = 'script.js') }}"></script>
+</body>
+
+</html>
