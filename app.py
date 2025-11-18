@@ -14,6 +14,7 @@ db_config ={
 @app.route("/")
 def index():
     libros= []
+    total_libros = 0
     conn = None
     try:
         conn = mysql.connector.connect(**db_config)
@@ -37,6 +38,7 @@ def index():
         """
         cursor.execute(query)
         libros=cursor.fetchall()
+        total_libros = len(libros)
 
     except mysql.connector.Error as err:
         print(f"Errror: {err}")
@@ -45,7 +47,7 @@ def index():
             cursor.close()
             conn.close()
 
-    return render_template('index.html', libros = libros)
+    return render_template('index.html', libros = libros, total_libros = total_libros)
 
 
 @app.route('/alternar_leido/<int:id_libro>', methods=['POST'])

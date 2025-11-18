@@ -39,6 +39,30 @@ h1 {
     margin-bottom: 30px;
     text-shadow: 2px 2px 0px rgba(0,0,0,0.05); /* Sutil efecto 3D */
 }
+.contador-container{
+    background-color: var(--fondo-card);
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    border: 1px solid var(--sombra);
+    box-shadow: 0 2px 5px var(--sombra);
+    font-family: 'Lato';
+}
+
+.contador-numero{
+    font-weight: bold;
+    color: var(--acento);
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.contador-texto{
+    color: var(--texto-sec);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 #buscador{
     width: 100%;
